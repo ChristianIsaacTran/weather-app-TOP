@@ -6,6 +6,7 @@ html {
 
 header {
     display: flex;
+    max-width: 2290px;
     min-width: 100vw;
     max-height: 100px;
     align-items: center;
@@ -17,6 +18,8 @@ header {
 
 .logo {
     font-size: 3rem;
+    min-width: 592px;
+    flex: 0;
 }
 
 body {

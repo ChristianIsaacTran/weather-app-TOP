@@ -18,7 +18,21 @@ export default function weatherRender() {
     async function defaultRender(weatherData) {
         // wait for data from API to arrive and processed before using it
         const processedData = await weatherData; 
+        console.log(processedData);
 
+        /*
+        use processed data from API to display:
+
+        1. today's current weather conditions and temperature
+        
+        2. the entire week temperatures with pictures to describe weather
+
+        3. location and date of the chosen area
+
+        4. Any weather emergency alerts. If none, then omit visual
+        */
+
+        
         
 
         
