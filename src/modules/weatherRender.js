@@ -32,7 +32,8 @@ export default function weatherRender() {
         4. Any weather emergency alerts. If none, then omit visual
         */
 
-        
+        const contentContainer = document.querySelector("#content-container");
+    
         
 
         
