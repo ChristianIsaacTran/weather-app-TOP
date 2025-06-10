@@ -7,8 +7,7 @@ export default function apiController() {
             );
             const weatherData = await response.json();
             const processedData = processWeather(weatherData);
-            console.log(weatherData);
-            console.log(processedData);
+            return processedData;
         } catch (error) {
             alert(error);
             console.log(error); 
