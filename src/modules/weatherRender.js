@@ -94,7 +94,6 @@ export default function weatherRender() {
     // helper function to clear the current render 
     function clearRender() {
         const elementList = document.querySelectorAll("#content-container > *");
-        
         elementList.forEach((element) => {
             element.remove();
         });
