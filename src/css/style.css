@@ -1,3 +1,18 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ul,
+ol,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
 html {
     background-color: lightgray;
     padding: 0;
@@ -25,6 +40,8 @@ header {
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 30px;
     min-height: 100vh;
     min-width: 100vw;
     padding: 0;
@@ -61,4 +78,69 @@ input {
 
 .submit-button:hover {
     background-color: rgb(45, 45, 204);
+}
+
+#content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top-content-container {
+    border: 5px solid rgb(95, 95, 95);
+    border-radius: 10px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+
+.location-header {
+    font-size: 3.5rem;
+}
+
+.weather-icon {
+    font-size: 10rem;
+    color: white;
+}
+
+.weather-temp {
+    font-size: 3rem;
+}
+
+.day-group {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    font-size: 1.5rem;
+    
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    min-width: 150px;
+}
+
+.day-temp {
+    background-color: rgb(55, 100, 221);
+    border-radius: 10px 10px 0 0;
+}
+
+.day-icon {
+    font-size: 5rem;
+    background-color: rgb(165, 201, 201);
+    border-radius: 0 0 10px 10px;
+}
+
+.day, 
+.top-content-container {
+    box-shadow: 0px 0px 9px 0px black;
+}
+
+.day-title,
+.current-title {
+    color: darkslategrey;
 }
