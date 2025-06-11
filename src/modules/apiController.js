@@ -23,7 +23,8 @@ export default function apiController() {
             description: weatherData.description,
             currentCondition: weatherData.currentConditions.conditions,
             currentTemp: weatherData.currentConditions.temp,
-            currentFeelLike: weatherData.currentConditions.feelslike
+            currentFeelLike: weatherData.currentConditions.feelslike,
+            currentIcon: weatherData.currentConditions.icon
         } 
         
         return processedData;

@@ -18,6 +18,7 @@ validationCreator.createLocationValidation(locationInput);
 locationForm.addEventListener("submit", (e) => {
     //prevent default submit event from reloading the page
     e.preventDefault();
+    render.clearRender();
     render.defaultRender(weatherController.getWeatherInfo(locationInput.value));
     
     // reset search bar value after submission
