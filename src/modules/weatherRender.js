@@ -114,7 +114,7 @@ export default function weatherRender() {
     // utility function to format the date string for daily forecast
     function formatGivenDate(givenDate) {
         const isoDateFormatted = format(parseISO(givenDate), "MM-dd-yyyy");
-        
+
         // date-fns works with local timezones, so I need to convert it into an ISO format
         // before formatting it with the additional date-fns library
 
@@ -154,6 +154,7 @@ export default function weatherRender() {
                 "top-content-container",
             );
             const locationHeader = createHTMLElement("h1", "location-header");
+            const currentDate = createHTMLElement("h3", "current-date");
             const currentCard = createHTMLElement("div", "current-card");
             const weatherTemp = createHTMLElement("h1", "weather-temp");
             const weatherIcon = createHTMLElement("p", "weather-icon");
@@ -192,7 +193,12 @@ export default function weatherRender() {
             }
 
             // add values and attributes to HTML elements
-            currentTitle.textContent = "CURRENT WEATHER";
+            currentTitle.textContent = "TODAY'S WEATHER";
+            const currentDayIndex = 0;
+            const formattedCurrentDate = formatGivenDate(
+                processedData.days[currentDayIndex].datetime,
+            );
+            currentDate.textContent = formattedCurrentDate;
             locationHeader.textContent = processedData.resolvedAddress;
             weatherTemp.textContent = processedData.currentTemp + "°";
 
@@ -207,6 +213,7 @@ export default function weatherRender() {
 
             // assemble HTML elements
             currentCard.appendChild(locationHeader);
+            currentCard.appendChild(currentDate);
             currentCard.appendChild(weatherTemp);
             currentCard.appendChild(weatherIcon);
             weatherDesBG.appendChild(weatherDes);
