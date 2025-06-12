@@ -140,9 +140,13 @@ input {
     min-width: 150px;
 }
 
+.day-date {
+    background-color: rgb(221, 100, 1);
+    border-radius: 10px 10px 0 0;
+}
+
 .day-temp {
     background-color: rgb(55, 100, 221);
-    border-radius: 10px 10px 0 0;
 }
 
 .day-icon {
@@ -162,3 +166,8 @@ input {
 .current-title {
     color: darkslategrey;
 }
+
+.loading-message {
+    font-size: 4rem; 
+}
+

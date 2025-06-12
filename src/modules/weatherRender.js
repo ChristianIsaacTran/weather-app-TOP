@@ -1,3 +1,5 @@
+import { format, parseISO } from "date-fns";
+
 export default function weatherRender() {
     // html helper function to create new html elements
     function createHTMLElement(element, classAttribute = "") {
@@ -109,25 +111,39 @@ export default function weatherRender() {
         });
     }
 
+    // utility function to format the date string for daily forecast
+    function formatGivenDate(givenDate) {
+        const isoDateFormatted = format(parseISO(givenDate), "MM-dd-yyyy");
+        
+        // date-fns works with local timezones, so I need to convert it into an ISO format
+        // before formatting it with the additional date-fns library
+
+        return isoDateFormatted;
+    }
+
     // note: anything using asynchronous anything needs to STAY asyncrhonous
     // this renders a default page to the webpage based on the API data
     async function defaultRender(weatherData) {
         try {
+            // change loading div message to indicate that the API is waiting for data.
+            const loadingMessage = document.querySelector(".loading-message");
+            loadingMessage.textContent = "Fetching API Data...";
+
             // wait for data from API to arrive and processed before using it
             const processedData = await weatherData;
             console.log(processedData);
 
             /*
-        use processed data from API to display:
+            use processed data from API to display:
 
-        1. today's current weather conditions and temperature
+            1. today's current weather conditions and temperature
         
-        2. the entire week temperatures with pictures to describe weather
+            2. the entire week temperatures with pictures to describe weather
 
-        3. location and date of the chosen area
+            3. location and date of the chosen area
 
-        4. Any weather emergency alerts. If none, then omit visual
-        */
+            4. Any weather emergency alerts. If none, then omit visual
+            */
 
             // generate HTML elements
             const contentContainer =
@@ -155,12 +171,20 @@ export default function weatherRender() {
                 );
 
                 const day = createHTMLElement("li", "day");
+                const dayDate = createHTMLElement("p", "day-date");
                 const dayTemp = createHTMLElement("h1", "day-temp");
                 const dayIcon = createHTMLElement("p", "day-icon");
 
+                // add date formatting and highlighting with date-fns
+                const formattedDate = formatGivenDate(
+                    processedData.days[i].datetime,
+                );
+
+                dayDate.textContent = formattedDate;
                 dayTemp.textContent = processedData.days[i].temp;
                 dayIcon.textContent = iconObj.icon;
 
+                day.appendChild(dayDate);
                 day.appendChild(dayTemp);
                 day.appendChild(dayIcon);
 
@@ -177,6 +201,9 @@ export default function weatherRender() {
             topContentContainer.style.backgroundImage = `url(${iconObj.picture.default})`;
             weatherDes.textContent = processedData.description;
             dayTitle.textContent = "DAILY FORECAST";
+
+            // turn off loading message by clearing text from div
+            loadingMessage.textContent = "";
 
             // assemble HTML elements
             currentCard.appendChild(locationHeader);
