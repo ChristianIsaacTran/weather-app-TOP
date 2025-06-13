@@ -35,6 +35,10 @@ header {
 }
 
 
+.location-input {
+    align-self: center;
+}
+
 
 .logo {
     font-size: 3rem;
