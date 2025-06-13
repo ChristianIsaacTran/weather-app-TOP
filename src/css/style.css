@@ -34,6 +34,8 @@ header {
     box-shadow: 4px 4px 20px 0px black;
 }
 
+
+
 .logo {
     font-size: 3rem;
     min-width: 592px;
@@ -55,6 +57,7 @@ form {
     display: flex;
     gap: 20px;
     font-size: 2rem;
+    align-self: center;
 }
 
 input::placeholder {
