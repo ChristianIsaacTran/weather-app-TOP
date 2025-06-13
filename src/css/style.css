@@ -59,7 +59,7 @@ form {
     display: flex;
     gap: 20px;
     font-size: 2rem;
-    align-self: center;
+    align-items: center;
 }
 
 input::placeholder {
